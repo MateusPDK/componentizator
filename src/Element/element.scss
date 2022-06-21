@@ -1,0 +1,40 @@
+@import "../common/assets/variables";
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 64px;
+  border-top: 2px dashed $white;
+  padding: 32px;
+  
+  &:last-of-type {
+    border-bottom: 2px dashed $white;
+  }
+
+  .element-fields {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+
+    .element-field {
+      flex: 3;
+      padding: 16px;
+      background-color: $white;
+      border: 2px solid $rhythm;
+      min-height: 128px;
+      border-radius: 16px;
+      transition: border 400ms linear;
+
+      &:focus {
+        border-color: $emerald;
+        transition: border 400ms linear;
+      }
+
+      &:not(textarea) {
+        border: none;
+      }
+    }
+  }
+}

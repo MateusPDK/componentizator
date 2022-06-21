@@ -1,0 +1,81 @@
+// FLEXBOX
+.flex { display: flex; }
+.column { flex-direction: column; }
+
+.align_center { align-items: center; }
+.align_start { align-items: flex-start; }
+.align_end { align-items: flex-end; }
+
+.justify_center { justify-content: center; }
+.justify_between { justify-content: space-between; }
+.justify_start { justify-content: flex-start; }
+.justify_end { justify-content: flex-end; }
+
+.gap_8 { gap: 8px; }
+.gap_16 { gap: 16px; }
+.gap_24 { gap: 24px; }
+.gap_32 { gap: 32px; }
+.gap_40 { gap: 40px; }
+.gap_60 { gap: 60px; }
+.gap_72 { gap: 72px; }
+
+// TYPOGRAPHY
+.aquamarine { color: $aquamarine; }
+.purple { color: $purple; }
+.rhythm { color: $rhythm; }
+.lavender { color: $lavender; }
+.smoky { color: $smoky; }
+
+.emerald { color: $emerald; }
+.black { color: $black; }
+.white { color: $white; }
+.orange { color: $orange; }
+.violet { color: $violet; }
+
+.regular { font-family: $regular; }
+.light { font-family: $light; }
+.bold { font-family: $bold; }
+
+.title {
+  font-size: 32px;
+  line-height: 32px;
+  font-family: $bold;
+}
+
+.subtitle {
+  font-size: 24px;
+  font-family: $bold;
+}
+
+// MARGINS
+.m8 { margin: 8px; }
+.mx8 { margin-left: 8px; margin-right: 8px; }
+.my8 { margin-top: 8px; margin-bottom: 8px; }
+.mt8 { margin-top: 8px; }
+.mb8 { margin-bottom: 8px; }
+.ml8 { margin-left: 8px; }
+.mr8 { margin-right: 8px; }
+
+.m16 { margin: 16px; }
+.mx16 { margin-left: 16px; margin-right: 16px; }
+.my16 { margin-top: 16px; margin-bottom: 16px; }
+.mt16 { margin-top: 16px; }
+.mb16 { margin-bottom: 16px; }
+.ml16 { margin-left: 16px; }
+.mr16 { margin-right: 16px; }
+
+.m24 { margin: 24px; }
+.mx24 { margin-left: 24px; margin-right: 24px; }
+.my24 { margin-top: 24px; margin-bottom: 24px; }
+.mt24 { margin-top: 24px; }
+.mb24 { margin-bottom: 24px; }
+.ml24 { margin-left: 24px; }
+.mr24 { margin-right: 24px; }
+
+.m32 { margin: 32px; }
+.mx32 { margin-left: 32px; margin-right: 32px; }
+.my32 { margin-top: 32px; margin-bottom: 32px; }
+.mt32 { margin-top: 32px; }
+.mb32 { margin-bottom: 32px; }
+.ml32 { margin-left: 32px; }
+.mr32 { margin-right: 32px; }

@@ -1,0 +1,33 @@
+.container {
+  padding: 0 8px;
+  margin: 0 auto;
+  max-width: calc(100% - 32px);
+
+  width: $container_max;
+  // background-color: salmon;
+
+  @media screen and (max-width: $screen_xl) {
+    width: $container_xl;
+    // background-color: aquamarine;
+  }
+  
+  @media screen and (max-width: $screen_lg) {
+    width: $container_lg;
+    // background-color: rosybrown;
+  }
+
+  @media screen and (max-width: $screen_md) {
+    width: $container_md;
+    // background-color: yellowgreen;
+  }
+
+  @media screen and (max-width: $screen_sm) {
+    width: $container_sm;
+    // background-color: gainsboro;
+  }
+
+  @media screen and (max-width: $screen_xs) {
+    width: $container_xs;
+    // background-color: darkcyan;
+  }
+}

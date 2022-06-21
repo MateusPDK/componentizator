@@ -1,4 +1,38 @@
-# Getting Started with Create React App
+# COMPONENTIZATOR
+## by Mateus Podgorski
+
+Este projeto tem como objetivo, colocar em pratica os conhecimentos estudados no Dojo ministrado por Bruno Bernardes da Costa
+
+Quanto ao projeto, busca servir como uma ferramenta de auxilio para Devs/Designers para a criação de um StyleGuide mais dinâmico das aplicações, com possibilidade de edição, e tendo como feature principal uma previsão instantânea dos componentes gerados, e disponibilidade do código fonte dos componentes, para que sejam implementados diretamente em seus respectivos projetos.
+
+Descrição:
+
+Requisítos Funcionais:
+- Possibilidade de criar infinitos elementos
+- Possibilidade de remover um elemento criado
+- Exibir uma prévia do elemento criado
+
+Cada elemento possui:
+- Campo para HTML
+- Campo para CSS
+- Area de Preview que precisa renderizar o HTML e CSS escritos
+- Salvar dados de alguma forma (Talvez um back, talvez um arquivo JSON)
+
+Requisítos Não-Funcionais:
+- Sem integrações
+
+Desenvolvido por:
+Mateus Podgorski (Polaqueira)
+
+Orientação por:
+Bruno Bernardes da Costa (Biluqueira)
+
+Consultora de agilidade:
+Amanda Preissler (Amandita)
+
+---
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
