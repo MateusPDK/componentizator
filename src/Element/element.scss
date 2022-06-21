@@ -13,6 +13,21 @@
     border-bottom: 2px dashed $white;
   }
 
+  .element-name {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    font-family: $bold;
+    font-size: 24px;
+    line-height: 42px;
+    color: $emerald;
+
+    &:focus {
+      border-color: $emerald;
+      transition: border 400ms linear;
+    }
+  }
+
   .element-fields {
     margin-top: 32px;
     display: flex;

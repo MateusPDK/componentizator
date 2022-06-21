@@ -4,14 +4,15 @@ import Plus from "../../common/components/Plus";
 
 import './button_plus.scss';
 
-const ButtonPlus = ({ classes }) => {
-  // TODO CODE HERE...
+const ButtonPlus = props => {
+  const { onclick, classes } = props;
 
   return (
     <button
       type="button"
       className={`btn-plus ${classes}`}
       title="Adicionar"
+      onClick={onclick}
     >
       <Plus />
     </button>

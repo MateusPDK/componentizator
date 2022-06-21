@@ -1,27 +1,70 @@
-import React from "react";
+import React, { useEffect } from "react";
 
+import { v4 as uuidv4 } from 'uuid';
+
+import InputName from "./Components/InputName";
+import InputCode from "./Components/InputCode";
+import Preview from "./Components/Preview";
 import ButtonDelete from "./Components/ButtonDelete";
 
 import './element.scss';
 
-const Element = () => {
-  // TODO CODE HERE...
+const Element = props => {
+  const { onRemoveElementHandler, onUpdateElementHandler } = props;
+  const { id, name, html, css } = props.element;
+
+  const initializeElementProps = () => {
+    if (!id || id === "") {
+      onChangeFieldHandler("id", uuidv4());
+    }
+
+    if (!name || name === "") {
+      onChangeFieldHandler("name", `Elemento ${props.index}`);
+    }
+  };
+
+  useEffect(() => {
+    initializeElementProps();
+  });
+
+  const onChangeFieldHandler = (name, value) => {
+    const updatedElement = {
+      ...props.element,
+      [name]: value,
+    };
+
+    onUpdateElementHandler(updatedElement);
+  };
 
   return (
     <div className="element">
       <div className="container">
         <div className="flex align_center justify_between">
-          <h2 className="subtitle">Element name</h2>
-          
-          <ButtonDelete />
+          <InputName
+            value={name}
+            onchange={(e) => onChangeFieldHandler("name", e.target.value)}
+          />
+
+          <ButtonDelete
+            onclick={() => onRemoveElementHandler(id)}
+          />
         </div>
 
         <div className="element-fields">
-          <textarea type="text" className="element-field"></textarea>
+          <InputCode
+            value={html}
+            onchange={(e) => onChangeFieldHandler("html", e.target.value)}
+          />
           
-          <textarea type="text" className="element-field"></textarea>
+          <InputCode
+            value={css}
+            onchange={(e) => onChangeFieldHandler("css", e.target.value)}
+          />
 
-          <div className="preview element-field"></div>
+          <Preview
+            html={html}
+            css={css}
+          />
         </div>
       </div>
     </div>
