@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const Preview = () => {
+import { arrayCleaner } from "../../common/utils";
+
+const Preview = ({ id, html, css }) => {
+  const clearDirtyFromString = string => {
+    return string.replace(/\n/g, '');
+  };
+
+  useEffect(() => {
+    const previewDiv = document.getElementById(id);
+    previewDiv.firstChild.style.cssText = clearDirtyFromString(css);
+  });
+
+  // const returnStringAsStyleHandler = () => {
+  //   const splitedStyle = css.split(";");
+  //   const finalStyle = splitedStyle.map(style => {
+  //     const styleArr = style.split(":");
+      
+  //     if (!styleArr[0] || styleArr[0] === "") {
+  //       return null;
+  //     }
+
+  //     return {
+  //       [clearDirtyFromString(styleArr[0])]: clearDirtyFromString(styleArr[1])
+  //     }
+  //   });
+
+  //   return arrayCleaner(finalStyle);
+  // };
+
   return (
-    <div className="preview element-field"></div>
+    <div
+      id={id}
+      className="preview element-field"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
   );
 };
 

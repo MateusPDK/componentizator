@@ -1,0 +1,1 @@
+export const arrayCleaner = array => array.filter(item => item);

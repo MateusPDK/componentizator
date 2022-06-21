@@ -62,6 +62,7 @@ const Element = props => {
           />
 
           <Preview
+            id={id}
             html={html}
             css={css}
           />

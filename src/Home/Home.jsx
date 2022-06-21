@@ -11,7 +11,7 @@ const Home = () => {
   const [elements, setElements] = useState([{
     id: uuidv4(),
     name: "",
-    html: "<p>Teste</p>",
+    html: "<button>Teste</button>",
     css: "color: red; text-decoration: underline;",
   }]);
 
