@@ -8,8 +8,13 @@ const Preview = ({ id, html, css }) => {
   };
 
   useEffect(() => {
-    const previewDiv = document.getElementById(id);
-    previewDiv.firstChild.style.cssText = clearDirtyFromString(css);
+    if (css && css != "") {
+      const previewDiv = document.getElementById(id);
+
+      if (previewDiv.firstChild && previewDiv.firstChild instanceof Element) {
+        previewDiv.firstChild.style.cssText = clearDirtyFromString(css);
+      }
+    };
   });
 
   // const returnStringAsStyleHandler = () => {
