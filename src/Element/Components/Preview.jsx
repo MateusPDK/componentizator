@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 
-import { arrayCleaner } from "../../common/utils";
-
 const Preview = ({ id, html, css }) => {
   const clearDirtyFromString = string => {
     return string.replace(/\n/g, '');
   };
 
   useEffect(() => {
-    if (css && css != "") {
+    if (css && css !== "") {
       const previewDiv = document.getElementById(id);
 
       if (previewDiv.firstChild && previewDiv.firstChild instanceof Element) {
