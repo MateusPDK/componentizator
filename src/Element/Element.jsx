@@ -9,9 +9,9 @@ import ButtonDelete from "./components/ButtonDelete";
 
 import './element.scss';
 
-const Element = props => {
+const Element = (props, { element = { id: "", name: "", html: "", css: "" } }) => {
   const { onRemoveElementHandler, onUpdateElementHandler } = props;
-  const { id, name, html, css } = props.element;
+  const { id, name, html, css } = element;
 
   const initializeElementProps = () => {
     if (!id || id === "") {
@@ -28,6 +28,10 @@ const Element = props => {
   });
 
   const onChangeFieldHandler = (name, value) => {
+    if(!onUpdateElementHandler) {
+      return;
+    }
+
     const updatedElement = {
       ...props.element,
       [name]: value,
@@ -42,23 +46,24 @@ const Element = props => {
         <div className="flex align_center justify_between">
           <InputName
             value={name}
-            onchange={(e) => onChangeFieldHandler("name", e.target.value)}
+            onchange={(e) => onChangeFieldHandler && onChangeFieldHandler("name", e.target.value)}
           />
 
           <ButtonDelete
-            onclick={() => onRemoveElementHandler(id)}
+            onclick={() => onRemoveElementHandler && onRemoveElementHandler(id)}
+            isDisabled={!onRemoveElementHandler}
           />
         </div>
 
         <div className="element-fields">
           <InputCode
             value={html}
-            onchange={(e) => onChangeFieldHandler("html", e.target.value)}
+            onchange={(e) => onChangeFieldHandler && onChangeFieldHandler("html", e.target.value)}
           />
           
           <InputCode
             value={css}
-            onchange={(e) => onChangeFieldHandler("css", e.target.value)}
+            onchange={(e) => onChangeFieldHandler && onChangeFieldHandler("css", e.target.value)}
           />
 
           <Preview

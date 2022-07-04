@@ -56,6 +56,7 @@ const Home = () => {
         element={element}
         onRemoveElementHandler={onRemoveElementHandler}
         onUpdateElementHandler={onUpdateElementHandler}
+        data-testid="teste"
       />
     ))
   };
