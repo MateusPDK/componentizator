@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 import { v4 as uuidv4 } from 'uuid';
 
-import InputName from "./Components/InputName";
-import InputCode from "./Components/InputCode";
-import Preview from "./Components/Preview";
-import ButtonDelete from "./Components/ButtonDelete";
+import InputName from "./components/InputName";
+import InputCode from "./components/InputCode";
+import Preview from "./components/Preview";
+import ButtonDelete from "./components/ButtonDelete";
 
 import './element.scss';
 
