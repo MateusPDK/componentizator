@@ -1,39 +1,40 @@
-import { cleanup, render, screen } from '@testing-library/react';
+import { render, screen, cleanup } from '@testing-library/react';
 import Element from '../Element';
 
-afterEach(cleanup)
+afterEach(cleanup);
 
-test("should delete button be disabled when there's no delete function", () => {
-  const wrapper = render(<Element />);
 
-  expect(wrapper.getByRole("button")).toBeDisabled();
+
+test("should not render if doesn't have functions", () => {
+  const mockElement = <Element
+    onRemoveElementHandler={() => {}}
+    onUpdateElementHandler={() => {}}
+  />
+
+  expect(mockElement.props.onRemoveElementHandler).toBeTruthy();
+  expect(mockElement.props.onUpdateElementHandler).toBeTruthy();
 });
 
-// test('should delete when there is no delete function', () => {
-//   render(<Element />);
-//   // expect(screen.getByTestId('add-word-input')).toBeInTheDocument();
-//   expect(screen.getByTestId('button-delete')).toBeDisabled();
-// })
+test("should render if element has all properties", () => {
+  const mockElementValid = <Element element={{
+    id: 1,
+    name: "Elemento 1",
+    html: "<button>Teste</button>",
+    css: "color: red; text-decoration: underline;",
+  }} />
 
-// test('should render component if it does not have properties', () => {
-//   const wrapper = render(<Element />);
+  expect(mockElementValid.props.element).toBeTruthy();
+  expect(mockElementValid.props.element.id).toBeTruthy();
+  expect(mockElementValid.props.element.name).toBeTruthy();
+  expect(mockElementValid.props.element.html).toBeTruthy();
+  expect(mockElementValid.props.element.css).toBeTruthy();
+});
 
-//   // expect(screen.Element).toBeInTheDocument().toBeFalsy();
-//   // expect(screen.Element.props())
-//   // expect(Element).toHaveBeenCalledWith(
-//   //   expect.objectContaining({
-//   //     open: true,
-//   //     data: "some data",
-//   //   })
-//   // );
+test("should not render if doesn't have all properties", () => {
+  const mockElementInvalid = <Element element={{}} />
 
-//   // expect(elementMock).toHaveBeenCalledWith(
-//   //   expect.objectContaining({
-//   //     element: Object,
-//   //     onRemoveElementHandler: Function,
-//   //     onUpdateElementHandler: Function,
-//   //   }),
-//   // );
-
-//   expect(wrapper.instance().props.element).toBeFalsy();
-// });
+  expect(mockElementInvalid.props.element.id).not.toBeTruthy();
+  expect(mockElementInvalid.props.element.name).not.toBeTruthy();
+  expect(mockElementInvalid.props.element.html).not.toBeTruthy();
+  expect(mockElementInvalid.props.element.css).not.toBeTruthy();
+});

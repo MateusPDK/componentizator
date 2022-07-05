@@ -9,9 +9,9 @@ import ButtonDelete from "./components/ButtonDelete";
 
 import './element.scss';
 
-const Element = (props, { element = { id: "", name: "", html: "", css: "" } }) => {
+const Element = props => {
   const { onRemoveElementHandler, onUpdateElementHandler } = props;
-  const { id, name, html, css } = element;
+  const { id, name, html, css } = props.element || { id: "", name: "", html: "", css: "" };
 
   const initializeElementProps = () => {
     if (!id || id === "") {
@@ -41,7 +41,7 @@ const Element = (props, { element = { id: "", name: "", html: "", css: "" } }) =
   };
 
   return (
-    <div className="element">
+    <div className="element" data-testid={`element-test-${id}`}>
       <div className="container">
         <div className="flex align_center justify_between">
           <InputName
