@@ -13,6 +13,7 @@ const ButtonPlus = props => {
       className={`btn-plus ${classes}`}
       title="Adicionar"
       onClick={onclick}
+      data-testid="add-button-test"
     >
       <Plus />
     </button>

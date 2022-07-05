@@ -3,8 +3,6 @@ import Element from '../Element';
 
 afterEach(cleanup);
 
-
-
 test("should not render if doesn't have functions", () => {
   const mockElement = <Element
     onRemoveElementHandler={() => {}}

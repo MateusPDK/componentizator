@@ -41,7 +41,11 @@ const Element = props => {
   };
 
   return (
-    <div className="element" data-testid={`element-test-${id}`}>
+    <div
+      id={id}
+      className="element"
+      data-testid={`element-test-${id}`}
+    >
       <div className="container">
         <div className="flex align_center justify_between">
           <InputName
@@ -50,6 +54,7 @@ const Element = props => {
           />
 
           <ButtonDelete
+            id={id}
             onclick={() => onRemoveElementHandler && onRemoveElementHandler(id)}
             isDisabled={!onRemoveElementHandler}
           />

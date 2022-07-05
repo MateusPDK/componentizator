@@ -56,7 +56,7 @@ const Home = () => {
         element={element}
         onRemoveElementHandler={onRemoveElementHandler}
         onUpdateElementHandler={onUpdateElementHandler}
-        data-testid="teste"
+        data-testid={`element-test-${element.id}`}
       />
     ))
   };
@@ -73,7 +73,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex column my32">
+      <div className="flex column my32" data-testid="elements-wrapper-test">
         {
           elements.length > 0 ?
           renderElementsHandler() :
