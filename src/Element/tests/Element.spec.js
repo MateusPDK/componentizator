@@ -1,16 +1,16 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import Element from '../Element';
 
 afterEach(cleanup);
 
 test("should not render if doesn't have functions", () => {
-  const mockElement = <Element
-    onRemoveElementHandler={() => {}}
-    onUpdateElementHandler={() => {}}
-  />
+  // const element = <Element
+  //   onRemoveElementHandler={() => {}}
+  //   onUpdateElementHandler={() => {}}
+  // />
 
-  expect(mockElement.props.onRemoveElementHandler).toBeTruthy();
-  expect(mockElement.props.onUpdateElementHandler).toBeTruthy();
+  // expect(element.props.onRemoveElementHandler).toBeTruthy();
+  // expect(element.props.onUpdateElementHandler).toBeTruthy();
 });
 
 test("should render if element has all properties", () => {
@@ -35,4 +35,28 @@ test("should not render if doesn't have all properties", () => {
   expect(mockElementInvalid.props.element.name).not.toBeTruthy();
   expect(mockElementInvalid.props.element.html).not.toBeTruthy();
   expect(mockElementInvalid.props.element.css).not.toBeTruthy();
+});
+
+test("should element name change", () => {
+  let updateWasTriggered = false;
+
+  const mockElementValid = (
+    <Element
+      element={{
+        id: 1,
+        name: "Elemento 1",
+        html: "<button>Teste</button>",
+        css: "color: red; text-decoration: underline;",
+      }}
+      onUpdateElementHandler={() => updateWasTriggered = true }
+    />
+  );
+
+  const wrapper = render(mockElementValid);
+
+  const nameInput = wrapper.getByTestId("input-name-test-1");
+
+  fireEvent.change(nameInput, { target: { value: "Elemento 1 EDITADO !!!" }});
+
+  expect(updateWasTriggered).toBeTruthy();
 });

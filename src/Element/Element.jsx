@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -12,6 +12,14 @@ import './element.scss';
 const Element = props => {
   const { onRemoveElementHandler, onUpdateElementHandler } = props;
   const { id, name, html, css } = props.element || { id: "", name: "", html: "", css: "" };
+
+  // TODO: Separar a lógica do elemento no próprio elemento, não na lista
+  const [element, setElement] = useState([{
+    id: props.element.id || uuidv4(),
+    name: props.element.name || "",
+    html: props.element.html || "",
+    css: props.element.css || "",
+  }]);
 
   const initializeElementProps = () => {
     if (!id || id === "") {
@@ -49,6 +57,7 @@ const Element = props => {
       <div className="container">
         <div className="flex align_center justify_between">
           <InputName
+            id={id}
             value={name}
             onchange={(e) => onChangeFieldHandler && onChangeFieldHandler("name", e.target.value)}
           />
