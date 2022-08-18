@@ -14,12 +14,12 @@ const Element = props => {
   const { id, name, html, css } = props.element || { id: "", name: "", html: "", css: "" };
 
   // TODO: Separar a lógica do elemento no próprio elemento, não na lista
-  const [element, setElement] = useState([{
-    id: props.element.id || uuidv4(),
-    name: props.element.name || "",
-    html: props.element.html || "",
-    css: props.element.css || "",
-  }]);
+  // const [element, setElement] = useState([{
+  //   id: props.element.id || uuidv4(),
+  //   name: props.element.name || "",
+  //   html: props.element.html || "",
+  //   css: props.element.css || "",
+  // }]);
 
   const initializeElementProps = () => {
     if (!id || id === "") {
